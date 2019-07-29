@@ -1,23 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import useInterval from './useInterval';
 import './App.css';
 
 function App() {
+  const [ count, setCount ] = useState(0);
+
+  useInterval(() => {
+    setCount(count + 1);
+  }, 3300);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p className="spins">{count} <del>hashes</del> spins</p>
+        <iframe id="ytplayer" type="text/html" width="720" height="405" src="https://www.youtube.com/embed/eY52Zsg-KVI?autoplay=1&mute=1" frameBorder="0" allowFullScreen />
+        <p className="spins">thx for cpu</p>
       </header>
     </div>
   );
